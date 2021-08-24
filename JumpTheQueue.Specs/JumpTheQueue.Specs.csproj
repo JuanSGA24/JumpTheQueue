@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Drivers\" />
-    <Folder Include="Features\Epic3\" />
-    <Folder Include="Features\Epic4\" />
-    <Folder Include="Hooks\" />
     <Folder Include="Steps\" />
   </ItemGroup>
 
