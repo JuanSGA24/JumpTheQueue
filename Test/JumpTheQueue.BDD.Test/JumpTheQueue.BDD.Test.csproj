@@ -30,15 +30,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Update="Features\Epic1\ObtainTicketNumber.feature">
+    <SpecFlowFeatureFiles Update="Features\Epic1\1ObtainTicketNumber.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
-    <SpecFlowFeatureFiles Update="Features\Epic1\CalculateWaitingTime.feature">
+    <SpecFlowFeatureFiles Update="Features\Epic1\2CalculateWaitingTime.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
-    <SpecFlowFeatureFiles Update="Features\Epic1\ShowAttendedTicket.feature">
+    <SpecFlowFeatureFiles Update="Features\Epic1\4ShowAttendedTicket.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
