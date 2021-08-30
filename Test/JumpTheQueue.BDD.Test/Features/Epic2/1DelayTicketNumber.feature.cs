@@ -28,7 +28,7 @@ namespace JumpTheQueue.BDD.Test.Features.Epic2
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "DelayTicketNumber.feature"
+#line 1 "1DelayTicketNumber.feature"
 #line hidden
         
         public DelayTheTicketNumberFeature(DelayTheTicketNumberFeature.FixtureData fixtureData, JumpTheQueue_BDD_Test_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
@@ -121,7 +121,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("this customer will go to the last place of the queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.And("a pop-up will be show with the new estimated waiting time in the queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("message with new estimated waiting time in the queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -6,7 +6,8 @@ Feature: Leave the queue
 
 @mytag
 Scenario: A customer who wants to leave the queue
-	Given the customer has a ticket number in the queue
-	When the customer wants to leave and click in "Leave" red button
+	Given the customer has a ticket number in the queue "Q005"
+	When the customer wants to leave and click in "Leave" button
 	Then after the confirmation the customer will be redirected to a Customer out page
-	And the queue jumps to the next customer
+	And the queue jumps to the next customer "Q006"
+	And the state of the accesCode changes to "Skipped"

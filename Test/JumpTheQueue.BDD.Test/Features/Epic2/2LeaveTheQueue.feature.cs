@@ -28,7 +28,7 @@ namespace JumpTheQueue.BDD.Test.Features.Epic2
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "LeaveTheQueue.feature"
+#line 1 "2LeaveTheQueue.feature"
 #line hidden
         
         public LeaveTheQueueFeature(LeaveTheQueueFeature.FixtureData fixtureData, JumpTheQueue_BDD_Test_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
@@ -112,16 +112,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
- testRunner.Given("the customer has a ticket number in the queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("the customer has a ticket number in the queue \"Q005\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
- testRunner.When("the customer wants to leave and click in \"Leave\" red button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the customer wants to leave and click in \"Leave\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
  testRunner.Then("after the confirmation the customer will be redirected to a Customer out page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.And("the queue jumps to the next customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the queue jumps to the next customer \"Q006\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 13
+ testRunner.And("the state of the accesCode changes to \"Skipped\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
