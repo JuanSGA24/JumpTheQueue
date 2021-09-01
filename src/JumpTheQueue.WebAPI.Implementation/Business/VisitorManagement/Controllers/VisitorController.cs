@@ -48,7 +48,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controll
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> GetVisitorById(int id)
+        public async Task<ActionResult> GetVisitorById(Guid id)
         {
             Devon4NetLogger.Debug("Executing GetVisitor from controller VisitorController");
             return Ok(await _VisitorService.GetGetVisitorById(id).ConfigureAwait(false));
@@ -75,11 +75,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controll
         /// </summary>
         /// <returns></returns>
         [HttpDelete]
-        [ProducesResponseType(typeof(long), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete(int VisitorId)
+        public async Task<ActionResult> Delete(Guid VisitorId)
         {
             Devon4NetLogger.Debug("Executing Delete from controller VisitorController");
             return Ok(await _VisitorService.DeleteVisitor(VisitorId).ConfigureAwait(false));
@@ -94,7 +94,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controll
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ModifyVisitor(int VisitorId, [FromBody]VisitorDto Visitor)
+        public async Task<ActionResult> ModifyVisitor(Guid VisitorId, [FromBody]VisitorDto Visitor)
         {
             Devon4NetLogger.Debug("Executing ModifyVisitor from controller VisitorController");
             return Ok(await _VisitorService.ModifyVisitorById(VisitorId, Visitor).ConfigureAwait(false));

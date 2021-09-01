@@ -30,7 +30,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
             return result.Select(UserConverter.ModelToDto);
         }
 
-        public async Task<UserDto> GetGetUserById(long id)
+        public async Task<UserDto> GetGetUserById(Guid id)
         {
             Devon4NetLogger.Debug($"GetGetUserById method from service UserService with value : {id}");
             var result = await _UserRepository.GetUserById(id).ConfigureAwait(false);
@@ -45,9 +45,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
             return UserConverter.ModelToDto(result);
         }
 
-        public async Task<long> DeleteUser(int id)
+        public async Task<Guid> DeleteUser(Guid id)
         {
-            var User = await _UserRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var User = await _UserRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (User == null)
             {
@@ -57,11 +57,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
             return await _UserRepository.DeleteUserById(id).ConfigureAwait(false);
         }
 
-        public async Task<UserDto> ModifyUserById(long id, UserDto User)
+        public async Task<UserDto> ModifyUserById(Guid id, UserDto User)
         {
             Devon4NetLogger.Debug($"ModifyUserById method from service UserService with value : {id}");
 
-            var ToUpdate = await _UserRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var ToUpdate = await _UserRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (ToUpdate == null)
             {
@@ -69,9 +69,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
             }
             var swap = User;
             ToUpdate.Id = swap.Id;
-ToUpdate.Username = swap.Username;
-ToUpdate.Password = swap.Password;
-ToUpdate.Role = swap.Role;
+            ToUpdate.Username = swap.Username;
+            ToUpdate.Password = swap.Password;
+            ToUpdate.Role = swap.Role;
                                 
             var result = await _UserRepository.Update(ToUpdate).ConfigureAwait(false);
             return UserConverter.ModelToDto(result);

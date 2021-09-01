@@ -24,7 +24,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<User> GetUserById(long id);
+        Task<User> GetUserById(Guid id);
 
         /// <summary>
         /// Create
@@ -40,6 +40,6 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<long> DeleteUserById(long id);
+        Task<Guid> DeleteUserById(Guid id);
     }
 }

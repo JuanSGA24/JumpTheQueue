@@ -22,7 +22,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Conve
 
                 Code = item.Code, 
                 CreatedTime = item.CreatedTime, 
-                StartTime = item.StartTime, 
+                StartTime = item.StartTime,
                 EndTime = item.EndTime, 
                 Status = item.Status, 
                 VisitorId = item.VisitorId, 

@@ -10,9 +10,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
     public interface IUserService
     {
         Task<UserDto> CreateUser(UserDto User);
-        Task<long> DeleteUser(int id);
+        Task<Guid> DeleteUser(Guid id);
         Task<IEnumerable<UserDto>> GetUsers(Expression<Func<User, bool>> predicate = null);
-        Task<UserDto> GetGetUserById(long id);
-        Task<UserDto> ModifyUserById(long id, UserDto User);
+        Task<UserDto> GetGetUserById(Guid id);
+        Task<UserDto> ModifyUserById(Guid id, UserDto User);
     }
 }

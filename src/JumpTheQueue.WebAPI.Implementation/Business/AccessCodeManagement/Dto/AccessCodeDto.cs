@@ -10,8 +10,8 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Dto
 
         public string Code { get; set; } 
         public DateTime CreatedTime { get; set; } 
-        public DateTime StartTime { get; set; } 
-        public DateTime EndTime { get; set; } 
+        public DateTime? StartTime { get; set; } 
+        public DateTime? EndTime { get; set; } 
         public string Status { get; set; } 
         public Guid VisitorId { get; set; } 
         public Guid QueueId { get; set; } 

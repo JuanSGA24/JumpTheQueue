@@ -30,7 +30,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Services
             return result.Select(VisitorConverter.ModelToDto);
         }
 
-        public async Task<VisitorDto> GetGetVisitorById(long id)
+        public async Task<VisitorDto> GetGetVisitorById(Guid id)
         {
             Devon4NetLogger.Debug($"GetGetVisitorById method from service VisitorService with value : {id}");
             var result = await _VisitorRepository.GetVisitorById(id).ConfigureAwait(false);
@@ -45,9 +45,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Services
             return VisitorConverter.ModelToDto(result);
         }
 
-        public async Task<long> DeleteVisitor(int id)
+        public async Task<Guid> DeleteVisitor(Guid id)
         {
-            var Visitor = await _VisitorRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var Visitor = await _VisitorRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (Visitor == null)
             {
@@ -57,11 +57,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Services
             return await _VisitorRepository.DeleteVisitorById(id).ConfigureAwait(false);
         }
 
-        public async Task<VisitorDto> ModifyVisitorById(long id, VisitorDto Visitor)
+        public async Task<VisitorDto> ModifyVisitorById(Guid id, VisitorDto Visitor)
         {
             Devon4NetLogger.Debug($"ModifyVisitorById method from service VisitorService with value : {id}");
 
-            var ToUpdate = await _VisitorRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var ToUpdate = await _VisitorRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (ToUpdate == null)
             {

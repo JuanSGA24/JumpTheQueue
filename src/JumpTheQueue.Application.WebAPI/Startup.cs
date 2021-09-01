@@ -1,5 +1,6 @@
 using Devon4Net.Application.WebAPI.Configuration;
 using JumpTheQueue.WebAPI.Implementation.Configure;
+using JumpTheQueue.WebAPI.Implementation.Domain.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

@@ -48,7 +48,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Contr
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> GetAccessCodeById(int id)
+        public async Task<ActionResult> GetAccessCodeById(Guid id)
         {
             Devon4NetLogger.Debug("Executing GetAccessCode from controller AccessCodeController");
             return Ok(await _AccessCodeService.GetGetAccessCodeById(id).ConfigureAwait(false));
@@ -75,11 +75,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Contr
         /// </summary>
         /// <returns></returns>
         [HttpDelete]
-        [ProducesResponseType(typeof(long), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete(int AccessCodeId)
+        public async Task<ActionResult> Delete(Guid AccessCodeId)
         {
             Devon4NetLogger.Debug("Executing Delete from controller AccessCodeController");
             return Ok(await _AccessCodeService.DeleteAccessCode(AccessCodeId).ConfigureAwait(false));
@@ -94,7 +94,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Contr
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ModifyAccessCode(int AccessCodeId, [FromBody]AccessCodeDto AccessCode)
+        public async Task<ActionResult> ModifyAccessCode(Guid AccessCodeId, [FromBody]AccessCodeDto AccessCode)
         {
             Devon4NetLogger.Debug("Executing ModifyAccessCode from controller AccessCodeController");
             return Ok(await _AccessCodeService.ModifyAccessCodeById(AccessCodeId, AccessCode).ConfigureAwait(false));

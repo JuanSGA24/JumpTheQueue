@@ -18,16 +18,16 @@ namespace JumpTheQueue.WebAPI.Implementation.Data.Repositories
         {
         }
 
-        public Task<Queue> Create(Guid Id,  string Name,  string Logo,  string Description,  string AccessLink,  int MinAttentionTime,  DateTime OpenTime,  DateTime CloseTime,  bool Started,  bool Closed,  Guid UserId)
+        public Task<Queue> Create(Guid Id,  string Name,  string Logo,  string Description,  string AccessLink,  int MinAttentionTime,  DateTime? OpenTime,  DateTime? CloseTime,  bool? Started,  bool? Closed,  Guid UserId)
         {
             //Devon4NetLogger.Debug($"Create method from repository QueueRepository with value : {title}");
             return Create(new Queue { Id = Id,  Name = Name,  Logo = Logo,  Description = Description,  AccessLink = AccessLink,  MinAttentionTime = MinAttentionTime,  OpenTime = OpenTime,  CloseTime = CloseTime,  Started = Started,  Closed = Closed,  UserId = UserId,   });
         }
 
-        public async Task<long> DeleteQueueById(long id)
+        public async Task<Guid> DeleteQueueById(Guid id)
         {
             Devon4NetLogger.Debug($"DeleteQueueById method from repository QueueRepository with value : {id}");
-            var deleted = await Delete(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var deleted = await Delete(t => t.Id == id).ConfigureAwait(false);
 
             if (deleted)
             {
@@ -43,10 +43,10 @@ namespace JumpTheQueue.WebAPI.Implementation.Data.Repositories
             return Get(predicate);
         }
 
-        public Task<Queue> GetQueueById(long id)
+        public Task<Queue> GetQueueById(Guid id)
         {
             Devon4NetLogger.Debug($"GetTodoById method from repository QueueRepository with value : {id}");
-            return GetFirstOrDefault(t => t.Id.Equals(id));
+            return GetFirstOrDefault(t => t.Id == id);
         }
     }
 }

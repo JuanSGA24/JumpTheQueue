@@ -30,7 +30,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Servi
             return result.Select(AccessCodeConverter.ModelToDto);
         }
 
-        public async Task<AccessCodeDto> GetGetAccessCodeById(long id)
+        public async Task<AccessCodeDto> GetGetAccessCodeById(Guid id)
         {
             Devon4NetLogger.Debug($"GetGetAccessCodeById method from service AccessCodeService with value : {id}");
             var result = await _AccessCodeRepository.GetAccessCodeById(id).ConfigureAwait(false);
@@ -45,9 +45,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Servi
             return AccessCodeConverter.ModelToDto(result);
         }
 
-        public async Task<long> DeleteAccessCode(int id)
+        public async Task<Guid> DeleteAccessCode(Guid id)
         {
-            var AccessCode = await _AccessCodeRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var AccessCode = await _AccessCodeRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (AccessCode == null)
             {
@@ -57,11 +57,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Servi
             return await _AccessCodeRepository.DeleteAccessCodeById(id).ConfigureAwait(false);
         }
 
-        public async Task<AccessCodeDto> ModifyAccessCodeById(long id, AccessCodeDto AccessCode)
+        public async Task<AccessCodeDto> ModifyAccessCodeById(Guid id, AccessCodeDto AccessCode)
         {
             Devon4NetLogger.Debug($"ModifyAccessCodeById method from service AccessCodeService with value : {id}");
 
-            var ToUpdate = await _AccessCodeRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var ToUpdate = await _AccessCodeRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (ToUpdate == null)
             {
@@ -69,13 +69,13 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Servi
             }
             var swap = AccessCode;
             ToUpdate.Code = swap.Code;
-ToUpdate.CreatedTime = swap.CreatedTime;
-ToUpdate.StartTime = swap.StartTime;
-ToUpdate.EndTime = swap.EndTime;
-ToUpdate.Status = swap.Status;
-ToUpdate.VisitorId = swap.VisitorId;
-ToUpdate.QueueId = swap.QueueId;
-ToUpdate.Id = swap.Id;
+            ToUpdate.CreatedTime = swap.CreatedTime;
+            ToUpdate.StartTime = swap.StartTime;
+            ToUpdate.EndTime = swap.EndTime;
+            ToUpdate.Status = swap.Status;
+            ToUpdate.VisitorId = swap.VisitorId;
+            ToUpdate.QueueId = swap.QueueId;
+            ToUpdate.Id = swap.Id;
                                 
             var result = await _AccessCodeRepository.Update(ToUpdate).ConfigureAwait(false);
             return AccessCodeConverter.ModelToDto(result);

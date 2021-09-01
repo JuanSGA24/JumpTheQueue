@@ -24,10 +24,10 @@ namespace JumpTheQueue.WebAPI.Implementation.Data.Repositories
             return Create(new Visitor { Id = Id,   });
         }
 
-        public async Task<long> DeleteVisitorById(long id)
+        public async Task<Guid> DeleteVisitorById(Guid id)
         {
             Devon4NetLogger.Debug($"DeleteVisitorById method from repository VisitorRepository with value : {id}");
-            var deleted = await Delete(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var deleted = await Delete(t => t.Id == id).ConfigureAwait(false);
 
             if (deleted)
             {
@@ -43,10 +43,10 @@ namespace JumpTheQueue.WebAPI.Implementation.Data.Repositories
             return Get(predicate);
         }
 
-        public Task<Visitor> GetVisitorById(long id)
+        public Task<Visitor> GetVisitorById(Guid id)
         {
             Devon4NetLogger.Debug($"GetTodoById method from repository VisitorRepository with value : {id}");
-            return GetFirstOrDefault(t => t.Id.Equals(id));
+            return GetFirstOrDefault(t => t.Id == id);
         }
     }
 }

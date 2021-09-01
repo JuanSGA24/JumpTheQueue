@@ -30,7 +30,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
             return result.Select(QueueConverter.ModelToDto);
         }
 
-        public async Task<QueueDto> GetGetQueueById(long id)
+        public async Task<QueueDto> GetGetQueueById(Guid id)
         {
             Devon4NetLogger.Debug($"GetGetQueueById method from service QueueService with value : {id}");
             var result = await _QueueRepository.GetQueueById(id).ConfigureAwait(false);
@@ -45,9 +45,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
             return QueueConverter.ModelToDto(result);
         }
 
-        public async Task<long> DeleteQueue(int id)
+        public async Task<Guid> DeleteQueue(Guid id)
         {
-            var Queue = await _QueueRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var Queue = await _QueueRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (Queue == null)
             {
@@ -57,11 +57,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
             return await _QueueRepository.DeleteQueueById(id).ConfigureAwait(false);
         }
 
-        public async Task<QueueDto> ModifyQueueById(long id, QueueDto Queue)
+        public async Task<QueueDto> ModifyQueueById(Guid id, QueueDto Queue)
         {
             Devon4NetLogger.Debug($"ModifyQueueById method from service QueueService with value : {id}");
 
-            var ToUpdate = await _QueueRepository.GetFirstOrDefault(t => t.Id.Equals(id)).ConfigureAwait(false);
+            var ToUpdate = await _QueueRepository.GetFirstOrDefault(t => t.Id == id).ConfigureAwait(false);
 
             if (ToUpdate == null)
             {

@@ -10,9 +10,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Services
     public interface IVisitorService
     {
         Task<VisitorDto> CreateVisitor(VisitorDto Visitor);
-        Task<long> DeleteVisitor(int id);
+        Task<Guid> DeleteVisitor(Guid id);
         Task<IEnumerable<VisitorDto>> GetVisitors(Expression<Func<Visitor, bool>> predicate = null);
-        Task<VisitorDto> GetGetVisitorById(long id);
-        Task<VisitorDto> ModifyVisitorById(long id, VisitorDto Visitor);
+        Task<VisitorDto> GetGetVisitorById(Guid id);
+        Task<VisitorDto> ModifyVisitorById(Guid id, VisitorDto Visitor);
     }
 }

@@ -24,7 +24,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<AccessCode> GetAccessCodeById(long id);
+        Task<AccessCode> GetAccessCodeById(Guid id);
 
         /// <summary>
         /// Create
@@ -33,13 +33,13 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         /// <param name="surName"></param>
         /// <param name="mail"></param>
         /// <returns></returns>
-        Task<AccessCode> Create(string Code,  DateTime CreatedTime,  DateTime StartTime,  DateTime EndTime,  string Status,  Guid VisitorId,  Guid QueueId,  Guid Id);
+        Task<AccessCode> Create(string Code,  DateTime CreatedTime,  DateTime? StartTime,  DateTime? EndTime,  string Status,  Guid VisitorId,  Guid QueueId,  Guid Id);
 
         /// <summary>
         /// Delete AccessCode by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<long> DeleteAccessCodeById(long id);
+        Task<Guid> DeleteAccessCodeById(Guid id);
     }
 }

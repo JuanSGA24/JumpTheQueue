@@ -13,13 +13,6 @@ using Devon4Net.Infrastructure.MediatR.Samples.Handler;
 using Devon4Net.Infrastructure.MediatR.Samples.Model;
 using Devon4Net.Infrastructure.MediatR.Samples.Query;
 using Devon4Net.Infrastructure.RabbitMQ.Samples.Handllers;
-using JumpTheQueue.WebAPI.Implementation.Business.EmployeeManagement.Validators;
-using JumpTheQueue.WebAPI.Implementation.Business.MediatRManagement.Commands;
-using JumpTheQueue.WebAPI.Implementation.Business.MediatRManagement.Dto;
-using JumpTheQueue.WebAPI.Implementation.Business.MediatRManagement.Handlers;
-using JumpTheQueue.WebAPI.Implementation.Business.MediatRManagement.Queries;
-using JumpTheQueue.WebAPI.Implementation.Business.RabbitMqManagement.Handlers;
-using JumpTheQueue.WebAPI.Implementation.Business.TodoManagement.Validators;
 using JumpTheQueue.WebAPI.Implementation.Domain.Database;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -64,34 +57,21 @@ namespace JumpTheQueue.WebAPI.Implementation.Configure
             var mediatR = serviceProvider.GetService<IOptions<MediatROptions>>();
             var rabbitMq = serviceProvider.GetService<IOptions<RabbitMqOptions>>();
 
-            if (rabbitMq?.Value != null && rabbitMq.Value.EnableRabbitMq)
-            {
-                SetupRabbitHandlers(services);
-            }
+            //if (rabbitMq?.Value != null && rabbitMq.Value.EnableRabbitMq)
+            //{
+            //    SetupRabbitHandlers(services);
+            //}
 
-            if (mediatR?.Value != null && mediatR.Value.EnableMediatR)
-            {
-                SetupMediatRHandlers(services);
-            }
-        }
-
-        private static void SetupRabbitHandlers(IServiceCollection services)
-        {
-            services.AddRabbitMqHandler<UserSampleRabbitMqHandler>(true);
-            services.AddRabbitMqHandler<TodoRabbitMqHandler>(true);
-        }
-
-        private static void SetupMediatRHandlers(IServiceCollection services)
-        {
-            services.AddTransient(typeof(IRequestHandler<GetUserQuery, UserDto>), typeof(GetUserhandler));
-            services.AddTransient(typeof(IRequestHandler<GetTodoQuery, TodoResultDto>), typeof(GetTodoHandler));
-            services.AddTransient(typeof(IRequestHandler<CreateTodoCommand, TodoResultDto>), typeof(CreateTodoHandler));
+            //if (mediatR?.Value != null && mediatR.Value.EnableMediatR)
+            //{
+            //    SetupMediatRHandlers(services);
+            //}
         }
 
         private static void SetupFluentValidators(ref IServiceCollection services)
         {
-            services.AddFluentValidation<TodosFluentValidator>(true);
-            services.AddFluentValidation<EmployeeFluentValidator>(true);
+            //services.AddFluentValidation<TodosFluentValidator>(true);
+            //services.AddFluentValidation<EmployeeFluentValidator>(true);
         }
 
         /// <summary>
@@ -104,8 +84,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Configure
         /// <param name="configuration"></param>
         private static void SetupDatabase(ref IServiceCollection services, ref IConfiguration configuration)
         {
-            services.SetupDatabase<TodoContext>(configuration, "Default", DatabaseType.InMemory);
-            services.SetupDatabase<EmployeeContext>(configuration, "Employee", DatabaseType.InMemory);
+            services.SetupDatabase<JumpTheQueueContext>(configuration, "JumpTheQueue", DatabaseType.PostgreSQL, migrate:true);
+            //services.SetupDatabase<TodoContext>(configuration, "Default", DatabaseType.InMemory);
+            //services.SetupDatabase<EmployeeContext>(configuration, "Employee", DatabaseType.InMemory);
         }
 
         private static void SetupJwtPolicies(ref IServiceCollection services)

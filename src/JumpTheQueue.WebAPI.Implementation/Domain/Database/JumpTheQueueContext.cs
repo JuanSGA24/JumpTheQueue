@@ -34,14 +34,6 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.Database
         {
             modelBuilder.Entity<AccessCode>(entity =>
             {
-                entity.HasIndex(e => e.QueueId)
-                    .HasName("accesscode_un2")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.VisitorId)
-                    .HasName("accesscode_un")
-                    .IsUnique();
-
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .ValueGeneratedNever();
@@ -70,14 +62,22 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.Database
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.VisitorId).HasColumnName("visitor_id");
+
+                entity.HasOne(d => d.Queue)
+                    .WithMany(p => p.AccessCode)
+                    .HasForeignKey(d => d.QueueId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("accesscode_fk");
+
+                entity.HasOne(d => d.Visitor)
+                    .WithMany(p => p.AccessCode)
+                    .HasForeignKey(d => d.VisitorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("accesscode_fk_1");
             });
 
             modelBuilder.Entity<Queue>(entity =>
             {
-                entity.HasIndex(e => e.UserId)
-                    .HasName("queue_un")
-                    .IsUnique();
-
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .ValueGeneratedNever();
@@ -114,10 +114,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.Database
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Queue)
-                    .HasPrincipalKey<AccessCode>(p => p.QueueId)
-                    .HasForeignKey<Queue>(d => d.Id)
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Queue)
+                    .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("queue_fk");
             });
@@ -142,13 +141,6 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.Database
                     .IsRequired()
                     .HasColumnName("username")
                     .HasColumnType("character varying");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.User)
-                    .HasPrincipalKey<Queue>(p => p.UserId)
-                    .HasForeignKey<User>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("user_fk");
             });
 
             modelBuilder.Entity<Visitor>(entity =>
@@ -156,13 +148,6 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.Database
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .ValueGeneratedNever();
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Visitor)
-                    .HasPrincipalKey<AccessCode>(p => p.VisitorId)
-                    .HasForeignKey<Visitor>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("visitor_fk");
             });
 
             OnModelCreatingPartial(modelBuilder);

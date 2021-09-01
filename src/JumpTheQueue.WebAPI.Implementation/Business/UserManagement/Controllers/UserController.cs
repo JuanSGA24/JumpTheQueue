@@ -48,7 +48,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> GetUserById(int id)
+        public async Task<ActionResult> GetUserById(Guid id)
         {
             Devon4NetLogger.Debug("Executing GetUser from controller UserController");
             return Ok(await _UserService.GetGetUserById(id).ConfigureAwait(false));
@@ -75,11 +75,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete]
-        [ProducesResponseType(typeof(long), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete(int UserId)
+        public async Task<ActionResult> Delete(Guid UserId)
         {
             Devon4NetLogger.Debug("Executing Delete from controller UserController");
             return Ok(await _UserService.DeleteUser(UserId).ConfigureAwait(false));
@@ -94,7 +94,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ModifyUser(int UserId, [FromBody]UserDto User)
+        public async Task<ActionResult> ModifyUser(Guid UserId, [FromBody]UserDto User)
         {
             Devon4NetLogger.Debug("Executing ModifyUser from controller UserController");
             return Ok(await _UserService.ModifyUserById(UserId, User).ConfigureAwait(false));

@@ -48,7 +48,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controller
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> GetQueueById(int id)
+        public async Task<ActionResult> GetQueueById(Guid id)
         {
             Devon4NetLogger.Debug("Executing GetQueue from controller QueueController");
             return Ok(await _QueueService.GetGetQueueById(id).ConfigureAwait(false));
@@ -75,11 +75,11 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controller
         /// </summary>
         /// <returns></returns>
         [HttpDelete]
-        [ProducesResponseType(typeof(long), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete(int QueueId)
+        public async Task<ActionResult> Delete(Guid QueueId)
         {
             Devon4NetLogger.Debug("Executing Delete from controller QueueController");
             return Ok(await _QueueService.DeleteQueue(QueueId).ConfigureAwait(false));
@@ -94,7 +94,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controller
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ModifyQueue(int QueueId, [FromBody]QueueDto Queue)
+        public async Task<ActionResult> ModifyQueue(Guid QueueId, [FromBody]QueueDto Queue)
         {
             Devon4NetLogger.Debug("Executing ModifyQueue from controller QueueController");
             return Ok(await _QueueService.ModifyQueueById(QueueId, Queue).ConfigureAwait(false));

@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JumpTheQueue.WebAPI.Implementation</name>
+    </assembly>
+    <members>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Controllers.AccessCodeController.GetAccessCode">
+            <summary>
+            Gets the entire list of AccessCodes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Controllers.AccessCodeController.GetAccessCodeById(System.Guid)">
+            <summary>
+            Get AccessCode by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Controllers.AccessCodeController.Create(JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Dto.AccessCodeDto)">
+            <summary>
+            Creates the AccessCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Controllers.AccessCodeController.Delete(System.Guid)">
+            <summary>
+            Deletes the AccessCode provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Controllers.AccessCodeController.ModifyAccessCode(System.Guid,JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Dto.AccessCodeDto)">
+            <summary>
+            Modifies the done status of the TODO provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Converters.AccessCodeConverter.ModelToDto(JumpTheQueue.WebAPI.Implementation.Domain.Entities.AccessCode)">
+            <summary>
+            ModelToDto AccessCode transformation
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controllers.QueueController.GetQueue">
+            <summary>
+            Gets the entire list of Queues
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controllers.QueueController.GetQueueById(System.Guid)">
+            <summary>
+            Get Queue by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controllers.QueueController.Create(JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Dto.QueueDto)">
+            <summary>
+            Creates the Queue
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controllers.QueueController.Delete(System.Guid)">
+            <summary>
+            Deletes the Queue provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Controllers.QueueController.ModifyQueue(System.Guid,JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Dto.QueueDto)">
+            <summary>
+            Modifies the done status of the TODO provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Converters.QueueConverter.ModelToDto(JumpTheQueue.WebAPI.Implementation.Domain.Entities.Queue)">
+            <summary>
+            ModelToDto Queue transformation
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers.UserController.GetUser">
+            <summary>
+            Gets the entire list of Users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers.UserController.GetUserById(System.Guid)">
+            <summary>
+            Get User by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers.UserController.Create(JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Dto.UserDto)">
+            <summary>
+            Creates the User
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers.UserController.Delete(System.Guid)">
+            <summary>
+            Deletes the User provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Controllers.UserController.ModifyUser(System.Guid,JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Dto.UserDto)">
+            <summary>
+            Modifies the done status of the TODO provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Converters.UserConverter.ModelToDto(JumpTheQueue.WebAPI.Implementation.Domain.Entities.User)">
+            <summary>
+            ModelToDto User transformation
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controllers.VisitorController.GetVisitor">
+            <summary>
+            Gets the entire list of Visitors
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controllers.VisitorController.GetVisitorById(System.Guid)">
+            <summary>
+            Get Visitor by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controllers.VisitorController.Create(JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Dto.VisitorDto)">
+            <summary>
+            Creates the Visitor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controllers.VisitorController.Delete(System.Guid)">
+            <summary>
+            Deletes the Visitor provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Controllers.VisitorController.ModifyVisitor(System.Guid,JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Dto.VisitorDto)">
+            <summary>
+            Modifies the done status of the TODO provided the id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Business.VisitorManagement.Converters.VisitorConverter.ModelToDto(JumpTheQueue.WebAPI.Implementation.Domain.Entities.Visitor)">
+            <summary>
+            ModelToDto Visitor transformation
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JumpTheQueue.WebAPI.Implementation.Configure.DevonConfiguration">
+            <summary>
+            DevonConfiguration
+            </summary>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Configure.DevonConfiguration.SetupDevonDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Sets up the service dependency injection
+            For example:
+            services.AddTransient"ITodoService, TodoService"();
+            services.AddTransient"ITodoRepository, TodoRepository"();
+            Put your DI declarations here
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Configure.DevonConfiguration.SetupDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection@,Microsoft.Extensions.Configuration.IConfiguration@)">
+            <summary>
+            Setup here your database connections.
+            To use RabbitMq message backup declare the 'RabbitMqBackupContext' database setup
+            PE: services.SetupDatabase&lt;RabbitMqBackupContext&gt;($"Data Source={FileOperations.GetFileFullPath("RabbitMqBackupSqLite.db")}", DatabaseType.Sqlite);
+            Please add the connection strings to enable the backup messaging for MediatR abd RabbitMq using MediatRBackupContext and RabbitMqBackupContext
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IAccessCodeRepository">
+            <summary>
+            AccessCode repository interface
+            </summary>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IAccessCodeRepository.GetAccessCode(System.Linq.Expressions.Expression{System.Func{JumpTheQueue.WebAPI.Implementation.Domain.Entities.AccessCode,System.Boolean}})">
+            <summary>
+            Get AccessCode with predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IAccessCodeRepository.GetAccessCodeById(System.Guid)">
+            <summary>
+            Get AccessCode by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IAccessCodeRepository.Create(System.String,System.DateTime,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Guid,System.Guid,System.Guid)">
+            <summary>
+            Create
+            </summary>
+            <param name="name"></param>
+            <param name="surName"></param>
+            <param name="mail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IAccessCodeRepository.DeleteAccessCodeById(System.Guid)">
+            <summary>
+            Delete AccessCode by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository">
+            <summary>
+            Queue repository interface
+            </summary>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository.GetQueue(System.Linq.Expressions.Expression{System.Func{JumpTheQueue.WebAPI.Implementation.Domain.Entities.Queue,System.Boolean}})">
+            <summary>
+            Get Queue with predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository.GetQueueById(System.Guid)">
+            <summary>
+            Get Queue by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository.Create(System.Guid,System.String,System.String,System.String,System.String,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Guid)">
+            <summary>
+            Create
+            </summary>
+            <param name="name"></param>
+            <param name="surName"></param>
+            <param name="mail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository.DeleteQueueById(System.Guid)">
+            <summary>
+            Delete Queue by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IUserRepository">
+            <summary>
+            User repository interface
+            </summary>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IUserRepository.GetUser(System.Linq.Expressions.Expression{System.Func{JumpTheQueue.WebAPI.Implementation.Domain.Entities.User,System.Boolean}})">
+            <summary>
+            Get User with predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IUserRepository.GetUserById(System.Guid)">
+            <summary>
+            Get User by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IUserRepository.Create(System.Guid,System.String,System.String,System.String)">
+            <summary>
+            Create
+            </summary>
+            <param name="name"></param>
+            <param name="surName"></param>
+            <param name="mail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IUserRepository.DeleteUserById(System.Guid)">
+            <summary>
+            Delete User by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IVisitorRepository">
+            <summary>
+            Visitor repository interface
+            </summary>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IVisitorRepository.GetVisitor(System.Linq.Expressions.Expression{System.Func{JumpTheQueue.WebAPI.Implementation.Domain.Entities.Visitor,System.Boolean}})">
+            <summary>
+            Get Visitor with predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IVisitorRepository.GetVisitorById(System.Guid)">
+            <summary>
+            Get Visitor by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IVisitorRepository.Create(System.Guid)">
+            <summary>
+            Create
+            </summary>
+            <param name="name"></param>
+            <param name="surName"></param>
+            <param name="mail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IVisitorRepository.DeleteVisitorById(System.Guid)">
+            <summary>
+            Delete Visitor by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

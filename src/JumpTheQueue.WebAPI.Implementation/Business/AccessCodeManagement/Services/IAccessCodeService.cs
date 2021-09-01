@@ -10,9 +10,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Servi
     public interface IAccessCodeService
     {
         Task<AccessCodeDto> CreateAccessCode(AccessCodeDto AccessCode);
-        Task<long> DeleteAccessCode(int id);
+        Task<Guid> DeleteAccessCode(Guid id);
         Task<IEnumerable<AccessCodeDto>> GetAccessCodes(Expression<Func<AccessCode, bool>> predicate = null);
-        Task<AccessCodeDto> GetGetAccessCodeById(long id);
-        Task<AccessCodeDto> ModifyAccessCodeById(long id, AccessCodeDto AccessCode);
+        Task<AccessCodeDto> GetGetAccessCodeById(Guid id);
+        Task<AccessCodeDto> ModifyAccessCodeById(Guid id, AccessCodeDto AccessCode);
     }
 }

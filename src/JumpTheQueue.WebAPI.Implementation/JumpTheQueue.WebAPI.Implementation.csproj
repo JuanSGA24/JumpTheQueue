@@ -61,9 +61,4 @@
     <PackageReference Include="Devon4Net.Infrastructure.SmaxHcm" Version="3.1.10" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Business\SmaxHcmrManagement\Dto\" />
-    <Folder Include="Business\SmaxHcmrManagement\Exceptions\" />
-  </ItemGroup>
-
 </Project>
