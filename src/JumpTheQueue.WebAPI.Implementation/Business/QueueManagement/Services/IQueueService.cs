@@ -14,5 +14,9 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
         Task<IEnumerable<QueueDto>> GetQueues(Expression<Func<Queue, bool>> predicate = null);
         Task<QueueDto> GetGetQueueById(Guid id);
         Task<QueueDto> ModifyQueueById(Guid id, QueueDto Queue);
+
+        /*TODO: hay que crear un DTO y asignarlo a la Task
+        Task<TimeDto> CalculateWaitingTime(Guid queueId, Guid visitorId);
+        */
     }
 }

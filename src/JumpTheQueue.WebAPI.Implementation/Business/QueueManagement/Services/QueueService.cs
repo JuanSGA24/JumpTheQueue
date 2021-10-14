@@ -83,5 +83,10 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
             var result = await _QueueRepository.Update(ToUpdate).ConfigureAwait(false);
             return QueueConverter.ModelToDto(result);
         }
+
+        public int CalculateWaitingTime(int averageAttentionTime, int noAttendedCustomers)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.11" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.5" />
 
     
@@ -24,6 +25,10 @@
     
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\JumpTheQueue.WebAPI.Implementation\JumpTheQueue.WebAPI.Implementation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
