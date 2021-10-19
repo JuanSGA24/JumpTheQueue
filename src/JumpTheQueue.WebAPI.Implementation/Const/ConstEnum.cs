@@ -5,7 +5,7 @@ using System.Text;
 namespace JumpTheQueue.WebAPI.Implementation.Const
 {
 
-    public enum Status
+    public enum QueueStatus
     {
         NotStarted,
         Waiting,

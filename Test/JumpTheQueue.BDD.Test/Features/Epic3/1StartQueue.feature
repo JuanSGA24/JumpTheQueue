@@ -6,6 +6,6 @@ Feature: StartQueue
 
 @mytag
 Scenario: The owner wants to start the service so starts the queue
-	Given the owner wants to start the queue
-	When the owner press the "Start" button
-	Then queue begins and the first active ticket number is attended
+	Given the owner provides the queue name "Queue1"
+	When the owner creates the queue
+	Then queue is created with the name "Queue1" and the first active ticket number is attended

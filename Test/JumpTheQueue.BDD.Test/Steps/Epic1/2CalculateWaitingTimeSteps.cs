@@ -12,7 +12,6 @@ namespace JumpTheQueue.BDD.Test.Steps.Epic1
     [Binding]
     public class CalculateWaitingTimeSteps
     {
-
         private Visitor _visitor;
         private Queue _queue;
         private AccessCode _accessCode;
@@ -45,7 +44,7 @@ namespace JumpTheQueue.BDD.Test.Steps.Epic1
             {
                 Id = Guid.NewGuid(),
                 Code = accessCode,
-                Status = Status.Waiting.ToString()
+                Status = QueueStatus.Waiting.ToString()
             };
         }
         
