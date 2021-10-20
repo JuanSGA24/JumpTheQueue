@@ -24,7 +24,7 @@ namespace JumpTheQueue.BDD.Test.Steps.Epic1
         [BeforeScenario]
         public void SetUpTest()
         {
-            _queueService = new QueueService(_unitOfWork);
+            _queueService = new QueueService(_unitOfWork.Object);
         }
 
 
