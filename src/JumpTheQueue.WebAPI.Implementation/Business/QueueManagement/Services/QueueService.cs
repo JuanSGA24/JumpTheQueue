@@ -40,7 +40,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
         public async Task<QueueDto> CreateQueue(QueueDto Queue)
         {
             //TODO: Add validation if required
-            var swap = Queue;            
+            var swap = Queue;
             var result = await _QueueRepository.Create( swap.Id,  swap.Name,  swap.Logo,  swap.Description,  swap.AccessLink,  swap.MinAttentionTime,  swap.OpenTime,  swap.CloseTime,  swap.Started,  swap.Closed,  swap.UserId).ConfigureAwait(false);
             return QueueConverter.ModelToDto(result);
         }
@@ -86,7 +86,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services
 
         public int CalculateWaitingTime(int averageAttentionTime, int noAttendedCustomers)
         {
-            throw new NotImplementedException();
+            return averageAttentionTime * noAttendedCustomers;
         }
     }
 }

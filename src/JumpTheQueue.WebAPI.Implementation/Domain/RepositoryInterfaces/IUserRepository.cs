@@ -27,6 +27,13 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         Task<User> GetUserById(Guid id);
 
         /// <summary>
+        /// Get a User by its username and password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        Task<User> GetUserByUsernameAndPassword(string username, string Password);
+        /// <summary>
         /// Create
         /// </summary>
         /// <param name="name"></param>
@@ -41,5 +48,6 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         /// <param name="id"></param>
         /// <returns></returns>
         Task<Guid> DeleteUserById(Guid id);
+
     }
 }

@@ -1,73 +1,70 @@
-﻿using JumpTheQueue.WebAPI.Implementation.Domain.Entities;
+﻿using Devon4Net.Domain.UnitOfWork.UnitOfWork;
+using JumpTheQueue.WebAPI.Implementation.Business.AccessCodeManagement.Dto;
+using JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services;
 using JumpTheQueue.WebAPI.Implementation.Const;
+using JumpTheQueue.WebAPI.Implementation.Domain.Database;
+using JumpTheQueue.WebAPI.Implementation.Domain.Entities;
+using Moq;
 using System;
 using TechTalk.SpecFlow;
-using JumpTheQueue.WebAPI.Implementation.Business.QueueManagement.Services;
-using Moq;
-using Devon4Net.Domain.UnitOfWork.UnitOfWork;
-using JumpTheQueue.WebAPI.Implementation.Domain.Database;
 
 namespace JumpTheQueue.BDD.Test.Steps.Epic1
 {
     [Binding]
     public class CalculateWaitingTimeSteps
     {
-        private Visitor _visitor;
-        private Queue _queue;
-        private AccessCode _accessCode;
-        private User _user;
+        private Mock<IUnitOfWork<JumpTheQueueContext>> _UnitOfWork;
 
-        public QueueService _queueService;
-        
-        public Mock<IUnitOfWork<JumpTheQueueContext>> _unitOfWork;
+        private AccessCodeDto _expectedAccessCodeDto;
+
+        private int _waitingTime;
+        private int _averageAttentionTime;
+        private int _noAttendedCustomers;
+
+        private QueueService _queueService;
 
         [BeforeScenario]
         public void SetUpTest()
         {
-            _queueService = new QueueService(_unitOfWork.Object);
+            _UnitOfWork = new Mock<IUnitOfWork<JumpTheQueueContext>>();
+            _queueService = new QueueService(_UnitOfWork.Object);
         }
 
 
         [Given(@"that the customers have a ticket number ""(.*)""")]
-        public void GivenThatTheCustomersHaveATicketNumber(string accessCode)
+        public void GivenThatTheCustomersHaveATicketNumber(string accessCodeNumber)
         {
-            _visitor = new Visitor
-            {
-                Id = Guid.NewGuid()
-            };
-
-            _queue = new Queue
-            {
-                
-            };
-            _accessCode = new AccessCode
+            _expectedAccessCodeDto = new AccessCodeDto
             {
                 Id = Guid.NewGuid(),
-                Code = accessCode,
-                Status = QueueStatus.Waiting.ToString()
+                Code = accessCodeNumber,
+                Status = nameof(QueueStatus.Waiting),
+                QueueId = Guid.NewGuid(),
+                VisitorId = Guid.NewGuid(),
+                CreatedTime = DateTime.UtcNow
             };
         }
         
         [Given(@"is the turn of the (.*)nd customer in the queue")]
-        public void GivenIsTheTurnOfTheNdCustomerInTheQueue(int p0)
+        public void GivenIsTheTurnOfTheNdCustomerInTheQueue(int positionInQueue)
         {
-            ScenarioContext.Current.Pending();
+            _noAttendedCustomers = positionInQueue - 1;
         }
         
         [Given(@"the average attetion time is (.*) minutes")]
-        public void GivenTheAverageAttetionTimeIsMinutes(int p0)
+        public void GivenTheAverageAttetionTimeIsMinutes(int averageAttentionTime)
         {
-            ScenarioContext.Current.Pending();
+            _waitingTime = _queueService.CalculateWaitingTime(averageAttentionTime, _noAttendedCustomers);
         }
         
-        [Given(@"they want to know how long they will have to wait")]
-        public void GivenTheyWantToKnowHowLongTheyWillHaveToWait()
+        [Given(@"the average attetion time is (.*) minutes")]
+        public void GivenTheAverageAttetionTimeIsMinutes(Decimal averageAttentionTime)
         {
             ScenarioContext.Current.Pending();
         }
         
         [Given(@"there is a queue of customers and a minimum waiting time of (.*) minute")]
-        public void GivenThereIsAQueueOfCustomersAndAMinimumWaitingTimeOfMinute(int p0)
+        public void GivenThereIsAQueueOfCustomersAndAMinimumWaitingTimeOfMinute(int minimunWaitingTime)
         {
             ScenarioContext.Current.Pending();
         }
@@ -75,29 +72,23 @@ namespace JumpTheQueue.BDD.Test.Steps.Epic1
         [When(@"the customer click a button of estimated waiting time")]
         public void WhenTheCustomerClickAButtonOfEstimatedWaitingTime()
         {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [When(@"the waiting time appears on the screen")]
-        public void WhenTheWaitingTimeAppearsOnTheScreen()
-        {
-            ScenarioContext.Current.Pending();
+            
         }
         
         [Then(@"the estimated waiting time is (.*) minutes")]
-        public void ThenTheEstimatedWaitingTimeIsMinutes(int p0)
+        public void ThenTheEstimatedWaitingTimeIsMinutes(int estimatedWaitingTime)
         {
             ScenarioContext.Current.Pending();
         }
         
         [Then(@"the waiting time can not be shorted than (.*) minute")]
-        public void ThenTheWaitingTimeCanNotBeShortedThanMinute(int p0)
+        public void ThenTheWaitingTimeCanNotBeShortedThanMinute(int minimunWaitingTime)
         {
             ScenarioContext.Current.Pending();
         }
         
-        [Then(@"if it is shorter the waiting time will be (.*) minute")]
-        public void ThenIfItIsShorterTheWaitingTimeWillBeMinute(int p0)
+        [Then(@"the waiting time will be (.*) minute")]
+        public void ThenTheWaitingTimeWillBeMinute(int minimunWaitingTime)
         {
             ScenarioContext.Current.Pending();
         }

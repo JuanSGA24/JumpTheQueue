@@ -14,5 +14,6 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
         Task<IEnumerable<UserDto>> GetUsers(Expression<Func<User, bool>> predicate = null);
         Task<UserDto> GetGetUserById(Guid id);
         Task<UserDto> ModifyUserById(Guid id, UserDto User);
+        Task<bool> CheckUserCredentials(UserDto userDto);
     }
 }

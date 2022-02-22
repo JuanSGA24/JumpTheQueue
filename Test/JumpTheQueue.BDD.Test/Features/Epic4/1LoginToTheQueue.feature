@@ -5,9 +5,14 @@ Feature: Login to the queue
 	So that I can access management page of the queue
 
 @mytag
-Scenario: The queue needs to be managed and the owner has to fill the follow fields 
-	Given the username
-	And the password
-	When clicks the "Accept" button
-	And the credentials are correct
-	Then the system grants the acces to manage the page of the queue
+Scenario: The user wants to login to the queue by providing valid credentials
+	Given the user provide a username "achito"
+	And the password "pass123"
+	When the user clicks the button "Login"
+	Then the provided credentials are "valid"
+
+Scenario: The user wants to login to the queue by providing invalid credentials
+	Given the user provide a username "achito"
+	And the password "pass124"
+	When the user clicks the button "Login"
+	Then the provided credentials are "true"

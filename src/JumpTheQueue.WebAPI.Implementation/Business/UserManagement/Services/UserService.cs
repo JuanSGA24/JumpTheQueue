@@ -72,9 +72,16 @@ namespace JumpTheQueue.WebAPI.Implementation.Business.UserManagement.Services
             ToUpdate.Username = swap.Username;
             ToUpdate.Password = swap.Password;
             ToUpdate.Role = swap.Role;
-                                
+
             var result = await _UserRepository.Update(ToUpdate).ConfigureAwait(false);
             return UserConverter.ModelToDto(result);
+        }
+
+        public async Task<bool> CheckUserCredentials(UserDto userDto)
+        {
+            var dbUser = await _UserRepository.GetUserByUsernameAndPassword(userDto.Username, userDto.Password).ConfigureAwait(false);
+
+            return dbUser.Username == userDto.Username && dbUser.Password == userDto.Password;
         }
     }
 }

@@ -236,7 +236,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository.Create(System.Guid,System.String,System.String,System.String,System.String,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Guid)">
+        <member name="M:JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces.IQueueRepository.Create(System.Guid,System.String,System.String,System.String,System.String,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Guid})">
             <summary>
             Create
             </summary>

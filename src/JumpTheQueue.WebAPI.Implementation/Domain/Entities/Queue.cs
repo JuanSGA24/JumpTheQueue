@@ -20,7 +20,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.Entities
         public DateTime? CloseTime { get; set; }
         public bool? Started { get; set; }
         public bool? Closed { get; set; }
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
 
         public virtual User User { get; set; }
         public virtual ICollection<AccessCode> AccessCode { get; set; }

@@ -33,7 +33,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Domain.RepositoryInterfaces
         /// <param name="surName"></param>
         /// <param name="mail"></param>
         /// <returns></returns>
-        Task<Queue> Create(Guid Id,  string Name,  string Logo,  string Description,  string AccessLink,  int MinAttentionTime,  DateTime? OpenTime,  DateTime? CloseTime,  bool? Started,  bool? Closed,  Guid UserId);
+        Task<Queue> Create(Guid Id,  string Name,  string Logo,  string Description,  string AccessLink,  int MinAttentionTime,  DateTime? OpenTime,  DateTime? CloseTime,  bool? Started,  bool? Closed,  Guid? UserId);
 
         /// <summary>
         /// Delete Queue by id

@@ -84,14 +84,12 @@ namespace JumpTheQueue.BDD.Test.Features.Epic3
         [Xunit.SkippableFactAttribute(DisplayName="The owner wants to start the service so starts the queue")]
         [Xunit.TraitAttribute("FeatureTitle", "StartQueue")]
         [Xunit.TraitAttribute("Description", "The owner wants to start the service so starts the queue")]
-        [Xunit.TraitAttribute("Category", "mytag")]
         public virtual void TheOwnerWantsToStartTheServiceSoStartsTheQueue()
         {
-            string[] tagsOfScenario = new string[] {
-                    "mytag"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The owner wants to start the service so starts the queue", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 8
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -111,14 +109,15 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 8
+ testRunner.Given("the owner provides the queue details as name \"Queue 1\", logo \"Logo 1\", descriptio" +
+                        "n \"Description 1\", access link \"AccessLink 1\", minimun attention time 1 minute", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 9
- testRunner.Given("the owner wants to start the queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("the owner creates this queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.When("the owner press the \"Start\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 11
- testRunner.Then("queue begins and the first active ticket number is attended", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("queue is created with the name name \"Queue 1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

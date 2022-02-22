@@ -18,7 +18,7 @@ namespace JumpTheQueue.WebAPI.Implementation.Data.Repositories
         {
         }
 
-        public Task<Queue> Create(Guid Id,  string Name,  string Logo,  string Description,  string AccessLink,  int MinAttentionTime,  DateTime? OpenTime,  DateTime? CloseTime,  bool? Started,  bool? Closed,  Guid UserId)
+        public Task<Queue> Create(Guid Id,  string Name,  string Logo,  string Description,  string AccessLink,  int MinAttentionTime,  DateTime? OpenTime,  DateTime? CloseTime,  bool? Started,  bool? Closed,  Guid? UserId)
         {
             //Devon4NetLogger.Debug($"Create method from repository QueueRepository with value : {title}");
             return Create(new Queue { Id = Id,  Name = Name,  Logo = Logo,  Description = Description,  AccessLink = AccessLink,  MinAttentionTime = MinAttentionTime,  OpenTime = OpenTime,  CloseTime = CloseTime,  Started = Started,  Closed = Closed,  UserId = UserId,   });
